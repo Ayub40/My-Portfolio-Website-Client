@@ -15,8 +15,8 @@ export default function Hero() {
                 {/* Text */}
                 <div className="flex-1 text-center lg:text-left">
                     <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">Hi 👋,</h1>
-                    <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">
-                        I’m <span>Ayub Khan</span> <br />
+                    <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white mt-2">
+                        I’m <span className="inline-block mb-3">Ayub Khan</span> <br />
                         <span className="text-[#22C55E]">Full Stack</span> Developer
                     </h1>
                     <p className="py-4 text-[#9CA3AF] text-base md:text-lg font-medium mb-6">
@@ -25,7 +25,7 @@ export default function Hero() {
                         and delivering high-quality solutions that enhance user experience.
                     </p>
 
-                    <div className="flex flex-wrap justify-center lg:justify-start gap-4">
+                    <div className="flex flex-wrap lg:flex-nowrap justify-center lg:justify-start gap-4">
                         <Link href="/Ayub_Khan.pdf" target="_blank">
                             <button className="px-4 py-2 text-white flex items-center gap-2 bg-[#1F2937] hover:bg-[#374151] rounded-md">
                                 Resume <MdOutlineFileDownload className="text-[#22C55E] text-lg" />
