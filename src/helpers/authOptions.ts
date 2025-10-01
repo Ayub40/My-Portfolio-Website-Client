@@ -59,6 +59,8 @@ export const authOptions: NextAuthOptions = {
                     }
 
                     const user = await res.json();
+                    console.log("User From API:", user);
+
                     if (user.id) {
                         return {
                             id: user?.id,
