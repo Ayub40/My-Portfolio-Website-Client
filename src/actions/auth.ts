@@ -18,6 +18,7 @@ export const register = async (data: FieldValues) => {
 export const login = async (data: FieldValues) => {
     // /auth/login --> eta backend theke asbe
     const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/auth/login`, {
+        // const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/api/v1/auth/login`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

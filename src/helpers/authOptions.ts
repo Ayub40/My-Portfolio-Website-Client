@@ -39,8 +39,15 @@ export const authOptions: NextAuthOptions = {
                 }
 
                 try {
+                    // ========================================
+                    console.log("Sending to backend:", {
+                        email: credentials.email,
+                        password: credentials.password,
+                    });
+                    // ========================================
                     const res = await fetch(
                         `${process.env.NEXT_PUBLIC_BASE_API}/auth/login`,
+                        // `${process.env.NEXT_PUBLIC_BASE_API}/api/v1/auth/login`,
                         {
                             method: "POST",
                             headers: {
@@ -53,6 +60,10 @@ export const authOptions: NextAuthOptions = {
                         }
                     );
                     console.log("Response From Backend:", res);
+                    // ======================================
+                    // const resText = await res.text();
+                    // console.log("Backend response body:", resText);
+                    // ======================================
                     if (!res?.ok) {
                         console.error("Login Failed", await res.text());
                         return null;
@@ -61,7 +72,7 @@ export const authOptions: NextAuthOptions = {
                     const user = await res.json();
                     console.log("User From API:", user);
 
-                    if (user.id) {
+                    if (user?.id) {
                         return {
                             id: user?.id,
                             name: user?.name,
