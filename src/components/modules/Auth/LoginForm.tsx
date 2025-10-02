@@ -17,6 +17,7 @@ import { signIn } from "next-auth/react";
 // import { login } from "@/actions/auth";
 import { toast } from "sonner";
 import { Input } from "@/components/ui/input";
+import Password from "@/components/ui/Password";
 
 // type LoginFormValues = {
 //   email: string;
@@ -90,11 +91,12 @@ export default function LoginForm() {
                                 <FormItem>
                                     <FormLabel>Password</FormLabel>
                                     <FormControl>
-                                        <Input
+                                        {/* <Input
                                             type="password"
                                             placeholder="Enter your password"
                                             {...field}
-                                        />
+                                        /> */}
+                                        <Password {...field} />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
