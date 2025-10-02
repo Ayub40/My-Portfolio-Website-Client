@@ -37,7 +37,7 @@ export default function RootLayout({
       >
         <AuthProvider>
           <Toaster richColors position="top-center" />
-          <div className="absolute -z-10 inset-0 h-full w-full bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] bg-[#0F0F0F]" />
+          {/* <div className="absolute -z-10 inset-0 h-full w-full bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] bg-[#0F0F0F]" /> */}
 
           {children}
         </AuthProvider>
