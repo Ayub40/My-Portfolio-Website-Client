@@ -5,8 +5,6 @@ import { revalidatePath, revalidateTag } from "next/cache";
 import { redirect } from "next/navigation";
 
 export const create = async (data: FormData) => {
-    // console.log(data);
-    // console.log({ ...data, authorId: 1 });
 
     const session = await getUserSession();
     const blogInfo = Object.fromEntries(data.entries());
@@ -31,8 +29,6 @@ export const create = async (data: FormData) => {
     });
 
     const result = await res.json();
-
-    // console.log({ result });
 
     if (result?.id) {
         revalidateTag("BLOGS");
