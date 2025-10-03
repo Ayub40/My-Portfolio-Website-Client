@@ -12,6 +12,20 @@ export default async function BlogDetailsCard({ blog }: { blog: any }) {
         <main className="max-w-4xl mx-auto py-30 px-4">
             <h1 className="text-5xl font-bold mb-6">{blog?.title}</h1>
 
+            {/* Tags Section */}
+            {blog?.tags && blog?.tags.length > 0 && (
+                <div className="flex flex-wrap gap-2 mb-6">
+                    {blog?.tags.map((tag: string, index: number) => (
+                        <span
+                            key={index}
+                            className="bg-blue-100 text-blue-600 text-sm font-medium px-3 py-1 rounded-full"
+                        >
+                            #{tag}
+                        </span>
+                    ))}
+                </div>
+            )}
+
             <div className="flex items-center gap-4 mb-8">
                 <Image
                     src={

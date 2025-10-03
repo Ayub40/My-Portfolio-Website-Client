@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import BlogCard from "@/components/modules/Blogs/BlogCard";
 import Hero from "@/components/modules/Home/Hero";
+import Skill from "./aboutHome/page";
 
 export default async function HomePage() {
 
@@ -18,6 +19,7 @@ export default async function HomePage() {
     <div className="mb-7">
 
       <Hero />
+      <Skill />
 
       <h2 className="text-center my-5 text-4xl mt-9">Featured Posts</h2>
       <div className="grid grid-cols-3 gap-4 max-w-6xl mx-auto my-5 ">
