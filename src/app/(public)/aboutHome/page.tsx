@@ -81,7 +81,7 @@ const Skill = () => {
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
                         {skillList.map((skill, index) => (
                             <div key={index} className="tooltip tooltip-bottom text-white" data-tip={skill.name}>
-                                <button className="h-[60px] w-full sm:w-[185px] px-4 py-2 border-2 border-gray-500 rounded-3xl flex items-center gap-3 bg-[#1F2937] transition-all duration-300 hover:bg-gray-800 hover:text-white">
+                                <button className="h-[60px] w-full sm:w-[185px] px-4 py-2 border-2 border-gray-500 rounded-3xl flex items-center gap-3 bg-[#1F2937] transition-all duration-300 hover:bg-gray-800 hover:text-white ">
                                     <img src={skill.icon} alt={`${skill.name} logo`} className="w-[35px]" />
                                     <h3 className="text-lg font-[500]">{skill.name}</h3>
                                 </button>

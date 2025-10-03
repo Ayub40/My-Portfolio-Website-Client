@@ -31,7 +31,7 @@ export default function Hero() {
                     </p>
 
                     <div className="flex flex-wrap lg:flex-nowrap justify-center lg:justify-start gap-4">
-                        <Link href="/Ayub_Khan.pdf" target="_blank">
+                        <Link href="/Ayub Khan.pdf" target="_blank">
                             <button className="px-4 py-2 text-white flex items-center gap-2 bg-[#1F2937] hover:bg-[#374151] rounded-md">
                                 Resume <MdOutlineFileDownload className="text-[#22C55E] text-lg" />
                             </button>

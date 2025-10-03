@@ -6,6 +6,7 @@ const aboutMe = {
     name: "Ayub Khan",
     email: "ayubk4028@gmail.com",
     phone: "+8801688871098",
+    Education: "B.Sc. (Hons), Physics",
     bio: "I am a full-stack developer passionate about building scalable apps with Next.js, Prisma, and MongoDB.",
 };
 
@@ -53,6 +54,9 @@ export default function AboutMe() {
                     <p className="text-gray-600">{aboutMe.bio}</p>
                     <p className="text-gray-700">
                         <strong>Email:</strong> {aboutMe.email}
+                    </p>
+                    <p className="text-gray-700">
+                        <strong>Education:</strong> {aboutMe.Education}
                     </p>
                     <p className="text-gray-700">
                         <strong>Phone:</strong> {aboutMe.phone}
