@@ -17,13 +17,6 @@ import { register } from "@/actions/auth";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 
-// type RegisterFormValues = {
-//   name: string;
-//   email: string;
-//   phone: string;
-//   password: string;
-// };
-
 export default function RegisterForm() {
     const form = useForm<FieldValues>({
         defaultValues: {
