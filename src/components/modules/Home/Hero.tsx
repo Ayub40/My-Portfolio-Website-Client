@@ -14,11 +14,6 @@ export default function Hero() {
             <div className="flex flex-col-reverse lg:flex-row items-center gap-10 lg:gap-20">
                 {/* Text */}
                 <div className="flex-1 text-center lg:text-left">
-                    {/* <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">Hi 👋,</h1>
-                    <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white mt-2">
-                        I’m <span className="inline-block mb-3">Ayub Khan</span> <br />
-                        <span className="text-[#22C55E]">Full Stack</span> Developer
-                    </h1> */}
                     <h1 className="text-4xl md:text-5xl font-bold mb-4 ">Hi 👋,</h1>
                     <h1 className="text-4xl md:text-5xl font-bold mb-4 mt-2">
                         I’m <span className="inline-block mb-3">Ayub Khan</span> <br />
