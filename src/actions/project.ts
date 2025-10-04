@@ -5,6 +5,8 @@ import { revalidatePath, revalidateTag } from "next/cache";
 import { redirect } from "next/navigation";
 
 export const createProject = async (data: FormData) => {
+    console.log(data);
+
     const session = await getUserSession();
     const projectInfo = Object.fromEntries(data.entries());
 
