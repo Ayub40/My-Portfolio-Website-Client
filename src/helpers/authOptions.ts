@@ -1,4 +1,3 @@
-import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { NextAuthOptions } from "next-auth";
 
@@ -21,10 +20,10 @@ declare module "next-auth" {
 
 export const authOptions: NextAuthOptions = {
     providers: [
-        GoogleProvider({
-            clientId: process.env.GOOGLE_CLIENT_ID as string,
-            clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
-        }),
+        // GoogleProvider({
+        //     clientId: process.env.GOOGLE_CLIENT_ID as string,
+        //     clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
+        // }),
         CredentialsProvider({
             name: "Credentials",
 
@@ -47,7 +46,6 @@ export const authOptions: NextAuthOptions = {
                     // ========================================
                     const res = await fetch(
                         `${process.env.NEXT_PUBLIC_BASE_API}/auth/login`,
-                        // `${process.env.NEXT_PUBLIC_BASE_API}/api/v1/auth/login`,
                         {
                             method: "POST",
                             headers: {
@@ -60,10 +58,7 @@ export const authOptions: NextAuthOptions = {
                         }
                     );
                     console.log("Response From Backend:", res);
-                    // ======================================
-                    // const resText = await res.text();
-                    // console.log("Backend response body:", resText);
-                    // ======================================
+
                     if (!res?.ok) {
                         console.error("Login Failed", await res.text());
                         return null;

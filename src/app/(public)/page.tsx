@@ -26,25 +26,25 @@ export default async function HomePage() {
   return (
     <div className="mb-7">
 
-      <Hero />
-      <Skill />
-      {/* Project */}
-      <div>
-        <h2 className="text-center my-5 text-4xl font-bold mt-9">My Projects</h2>
-        <div className="grid grid-cols-3 gap-4 max-w-6xl mx-auto my-5">
-          {projects?.map((project: any) => (
-            <ProjectCard key={project.id} project={project} />
+        <Hero />
+        <Skill />
+        {/* Project */}
+        <div>
+          <h2 className="text-center my-5 text-4xl font-bold mt-9">My Projects</h2>
+          <div className="grid grid-cols-3 gap-4 max-w-6xl mx-auto my-5">
+            {projects?.map((project: any) => (
+              <ProjectCard key={project.id} project={project} />
+            ))}
+          </div>
+        </div>
+
+
+        <h2 className="text-center my-5 text-4xl mt-9">Featured Posts</h2>
+        <div className="grid grid-cols-3 gap-4 max-w-6xl mx-auto my-5 ">
+          {blogs.slice(0, 3).map((blog: any) => (
+            <BlogCard key={blog?.id} post={blog} />
           ))}
         </div>
       </div>
-
-
-      <h2 className="text-center my-5 text-4xl mt-9">Featured Posts</h2>
-      <div className="grid grid-cols-3 gap-4 max-w-6xl mx-auto my-5 ">
-        {blogs.slice(0, 3).map((blog: any) => (
-          <BlogCard key={blog?.id} post={blog} />
-        ))}
-      </div>
-    </div>
-  );
+      );
 }

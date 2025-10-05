@@ -1,36 +1,138 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# My Portfolio Website
 
-## Getting Started
+[Live Demo](https://my-portfolio-website-client.vercel.app/)
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Project Overview
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+"My Portfolio Website" is a modern, responsive personal portfolio built with **NextJS, TypeScript, Prisma, and ExpressJS**.  
+It allows the portfolio owner to manage blogs, projects, and other content through a private dashboard while providing public visitors with information about skills, projects, and blogs.  
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Key features include:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Secure **Authentication & Authorization** for the owner
+- Dynamic **Dashboard** for content management
+- Public **About Me** section with personal info, experience, and skills
+- **Project Showcase** with live links and descriptions
+- **Blog Management**: Create, read, update, and delete blogs (Owner only)
+- Fully responsive and polished **UI/UX**
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## Features
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Public Pages
+Accessible to all visitors without login:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. **Blog Management**
+   - View all blogs and individual blog pages
+   - Uses ISR (Incremental Static Regeneration) for fast updates without full rebuild
+2. **About Me Section**
+   - Displays personal information, work experience, and skills
+   - Fetches static content using SSG (Static Site Generation)
+3. **Projects Showcase**
+   - Personal projects with thumbnail, description, live site link, and features
+   - ISR used for dynamic updates
 
-## Deploy on Vercel
+### Private Pages (Owner Only)
+Accessible only after secure login:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. **Authentication & Authorization**
+   - JWT-based authentication
+   - Passwords hashed securely with bcrypt
+   - Admin seeded during backend setup
+2. **Dashboard**
+   - Manage blogs, projects, and other content dynamically
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## Technology Stack
+
+### Frontend
+- Framework: **NextJS**
+- Language: **TypeScript**
+- Styling: **Tailwind CSS**  
+- Libraries: 
+  - `next-auth` for authentication
+  - `react-hot-toast` for notifications
+  - `lucide-react`, `react-icons`, `radix-ui` for UI components
+  - `react-hook-form` + `zod` for form handling and validation
+
+### Backend
+- Runtime: **Node.js / ExpressJS**
+- Database: **Postgres + Prisma** or **MongoDB + Mongoose**
+- Authentication: **JWT + bcrypt**
+- Libraries:
+  - `express`, `cors`, `compression`, `jsonwebtoken`
+  - `ts-node-dev` for development
+  - `prisma` for ORM
+- TypeScript for type safety
+
+---
+
+### Project Setup Instructions
+
+## Setup Instructions
+
+### 💻 Frontend Setup
+### Frontend
+1. Clone the repository:
+   ```bash
+   git clone <frontend-repo-url>
+   cd my-portfolio-website-client
+
+
+
+
+
+These commands are for setting up the client-side of the application.
+
+1.  **Install dependencies:**
+    ```bash
+    npm install
+    ```
+
+2.  **Run the development server:**
+    ```bash
+    npm run dev
+    ```
+
+3.  **Open in browser:**
+    *(This is the URL you will open once the server is running)*
+    ```
+    http://localhost:3000
+    ```
+
+## ⚙️ Backend Setup
+
+These commands are for setting up the server-side, including the database.
+
+1.  **Clone the repository:**
+    ```bash
+    git clone <backend-repo-url>
+    cd next-blog
+    ```
+
+2.  **Install dependencies:**
+    ```bash
+    npm install
+    ```
+
+3.  **Set environment variables in a `.env` file:**
+    *Create a new file named `.env` in the `next-blog` folder and add these lines.*
+    ```
+    DATABASE_URL="your-database-url"
+    JWT_SECRET="your-secret-key"
+    ```
+
+4.  **Run database migrations and seed admin:**
+    ```bash
+    npx prisma migrate dev
+    npm run seed
+    ```
+
+5.  **Start development server:**
+    ```bash
+    npm run dev
+    ```
