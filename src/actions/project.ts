@@ -41,3 +41,69 @@ export const createProject = async (data: FormData) => {
 
     return result;
 };
+
+
+// Update Project Action
+export const updateProjectAction = async (id: string, formData: FormData) => {
+    try {
+        const projectInfo = Object.fromEntries(formData.entries());
+        const modifiedData = {
+            ...projectInfo,
+            technologies: projectInfo.technologies?.toString().split(",").map((t) => t.trim()),
+            features: projectInfo.features?.toString().split(",").map((f) => f.trim()),
+        };
+
+        const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/project/${id}`, {
+            method: "PATCH",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(modifiedData),
+        });
+
+        if (!res.ok) throw new Error("Failed to update");
+
+        revalidatePath("/dashboard/project-table");
+        revalidatePath("/projects");
+
+        return { success: true };
+    } catch (error) {
+        return { success: false, error: "Update failed" };
+    }
+};
+
+
+// export const updateProjectAction = async (id: string, formData: FormData) => {
+//     const projectInfo = Object.fromEntries(formData.entries());
+
+//     const modifiedData = {
+//         ...projectInfo,
+//         technologies: projectInfo.technologies?.toString().split(",").map((t) => t.trim()),
+//         features: projectInfo.features?.toString().split(",").map((f) => f.trim()),
+//     };
+
+//     const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/project/${id}`, {
+//         method: "PATCH",
+//         headers: { "Content-Type": "application/json" },
+//         body: JSON.stringify(modifiedData),
+//     });
+
+//     if (res.ok) {
+//         revalidatePath("/dashboard/project-table");
+//         revalidatePath("/projects");
+//         redirect("/dashboard/project-table");
+//     }
+// };
+
+// Delete Project Action
+export const deleteProjectAction = async (id: string) => {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/project/${id}`, {
+        method: "DELETE",
+    });
+
+    if (res.ok) {
+        revalidateTag("PROJECTS");
+        revalidatePath("/projects");
+        return { success: true };
+    }
+
+    return { success: false };
+};
