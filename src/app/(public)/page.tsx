@@ -87,6 +87,7 @@ import BlogCard from "@/components/modules/Blogs/BlogCard";
 import Hero from "@/components/modules/Home/Hero";
 import Skill from "./aboutHome/page";
 import ProjectCard from "@/components/modules/Projects/ProjectCard";
+import EducationContact from "@/components/modules/Home/EducationContact";
 
 export default async function HomePage() {
 
@@ -124,7 +125,7 @@ export default async function HomePage() {
           ))}
         </div>
       </section>
-
+      <EducationContact />
       {/* Blogs Section */}
       <section className="my-20 px-4 bg-gray-50 py-16">
         <h2 className="text-center text-3xl sm:text-4xl font-bold mb-10">
