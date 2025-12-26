@@ -41,5 +41,3 @@ export const create = async (data: FormData) => {
 
     return result;
 }
-
-
