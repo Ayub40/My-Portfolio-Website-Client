@@ -68,6 +68,18 @@ export default function CreateProjectForm() {
                     className="w-full rounded-md border px-3 py-2 focus:ring focus:ring-blue-200" />
             </div>
 
+            {/* Challenges */}
+            <div>
+                <label className="block text-sm font-medium mb-1">Challenges Faced</label>
+                <textarea name="challenges" rows={3} className="w-full rounded-md border px-3 py-2" placeholder="What were the hard parts?" />
+            </div>
+
+            {/* Future Plans */}
+            <div>
+                <label className="block text-sm font-medium mb-1">Future Plans</label>
+                <textarea name="futurePlans" rows={3} className="w-full rounded-md border px-3 py-2" placeholder="What's next for this project?" />
+            </div>
+
             <button type="submit"
                 className="w-full bg-blue-600 text-white font-medium py-2 rounded-md hover:bg-blue-700 transition">
                 Create Project

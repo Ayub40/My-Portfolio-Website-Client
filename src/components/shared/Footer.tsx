@@ -30,18 +30,18 @@ export default function Footer() {
                         <Link href="/" className="hover:text-white transition-colors">
                             Home
                         </Link>
-                        <Link href="/events" className="hover:text-white transition-colors">
+                        {/* <Link href="/events" className="hover:text-white transition-colors">
                             Events
-                        </Link>
+                        </Link> */}
                         <Link href="/about" className="hover:text-white transition-colors">
                             About
                         </Link>
-                        <Link
+                        {/* <Link
                             href="/contact"
                             className="hover:text-white transition-colors"
                         >
                             Contact
-                        </Link>
+                        </Link> */}
                     </div>
 
                     {/* Right */}

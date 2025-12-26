@@ -10,7 +10,7 @@ export default function Hero() {
     const whatsappLink = () => window.open("https://wa.me/+8801688871098", "_blank");
 
     return (
-        <div className="hero rounded-lg relative m-auto sm:max-w-xl md:max-w-4xl lg:max-w-6xl mt-28 px-4">
+        <div className="hero rounded-lg relative m-auto sm:max-w-xl md:max-w-4xl lg:max-w-7xl mt-28 px-4">
             <div className="flex flex-col-reverse lg:flex-row items-center gap-10 lg:gap-20">
                 {/* Text */}
                 <div className="flex-1 text-center lg:text-left">

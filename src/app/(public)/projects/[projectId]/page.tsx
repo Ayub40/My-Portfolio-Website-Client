@@ -3,7 +3,9 @@
 // import BlogDetailsCard from "@/components/modules/Blogs/BlogDetailsCard";
 
 import ProjectCard from "@/components/modules/Projects/ProjectCard";
+import ProjectDetailsCard from "@/components/modules/Projects/ProjectDetailsCard";
 import { getProjectById } from "@/services/ProjectServices";
+import Link from "next/link";
 
 export const generateStaticParams = async () => {
     const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/project`);
@@ -34,19 +36,15 @@ export const generateMetadata = async ({
     };
 }
 
-
 const ProjectDetailsPage = async ({ params }: { params: Promise<{ projectId: string }> }) => {
-
-    const { projectId } = await params
-
+    const { projectId } = await params;
     const project = await getProjectById(projectId);
 
-    return (
-        <div className="py-30 px-4 max-w-7xl mx-auto">
-            {/* <BlogDetailsCard project={project} /> */}
-            <ProjectCard project={project} />
-        </div>
-    );
+    if (!project) {
+        return <div className="text-center py-20 text-2xl font-bold">Project not found!</div>;
+    }
+
+    return <ProjectDetailsCard project={project} />;
 };
 
 export default ProjectDetailsPage;

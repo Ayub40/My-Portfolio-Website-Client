@@ -16,11 +16,13 @@ const AllProjectPage = async () => {
 
     return (
         <div className="py-30 px-4 max-w-7xl mx-auto">
-            <h2 className="text-center text-4xl">All Projects</h2>
-            {/* <div className="grid grid-cols-3 gap-4 max-w-6xl mx-auto my-5"> */}
-            <div className="max-w-7xl mx-auto px-4 py-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <h2 className="text-center text-3xl sm:text-4xl font-bold mb-10">
+                🚀 All Projects
+            </h2>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 {projects.map((project: any) => (
-                    <ProjectCard key={project?.id} project={project} />
+                    <ProjectCard key={project.id} project={project} />
                 ))}
             </div>
         </div>

@@ -20,6 +20,8 @@ export const createProject = async (data: FormData) => {
             .toString()
             .split(",")
             .map((f) => f.trim()),
+        challenges: projectInfo.challenges,
+        futurePlans: projectInfo.futurePlans,
         ownerId: session?.user?.id,
     };
 
