@@ -3,7 +3,6 @@
 import React from "react";
 import { FieldValues, useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
 import {
     Form,
     FormControl,
@@ -12,17 +11,9 @@ import {
     FormLabel,
     FormMessage,
 } from "@/components/ui/form";
-import Image from "next/image";
 import { signIn } from "next-auth/react";
-// import { login } from "@/actions/auth";
-import { toast } from "sonner";
 import { Input } from "@/components/ui/input";
 import Password from "@/components/ui/Password";
-
-// type LoginFormValues = {
-//   email: string;
-//   password: string;
-// };
 
 export default function LoginForm() {
     const form = useForm<FieldValues>({
@@ -34,12 +25,6 @@ export default function LoginForm() {
 
     const onSubmit = async (values: FieldValues) => {
         try {
-            // const res = await login(values);
-            // if (res?.id) {
-            //   toast.success("User Logged in Successfully");
-            // } else {
-            //   toast.error("User Login Failed");
-            // }
             signIn("credentials", {
                 ...values,
                 callbackUrl: "/dashboard",
@@ -91,11 +76,6 @@ export default function LoginForm() {
                                 <FormItem>
                                     <FormLabel>Password</FormLabel>
                                     <FormControl>
-                                        {/* <Input
-                                            type="password"
-                                            placeholder="Enter your password"
-                                            {...field}
-                                        /> */}
                                         <Password {...field} />
                                     </FormControl>
                                     <FormMessage />
@@ -109,7 +89,6 @@ export default function LoginForm() {
 
                         <div className="flex items-center justify-center space-x-2">
                             <div className="h-px w-16 bg-gray-300" />
-                            {/* <span className="text-sm text-gray-500">or continue with</span> */}
                             <div className="h-px w-16 bg-gray-300" />
                         </div>
                     </form>

@@ -14,7 +14,7 @@ export async function middleware(request: NextRequest) {
         req: request,
         secret: process.env.AUTH_SECRET,
     });
-    console.log("Token from middleware", token);
+    // console.log("Token from middleware", token);
 
     if (!token) {
         const url = request.nextUrl.clone();

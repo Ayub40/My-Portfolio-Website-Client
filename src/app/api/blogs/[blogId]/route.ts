@@ -1,24 +1,74 @@
+// import { NextRequest, NextResponse } from "next/server";
+// import { blogs } from "../route";
+
+// // GET
+// export async function GET(
+//     request: NextRequest,
+//     context: { params: Promise<{ blogId: string }> }
+// ) {
+//     const { blogId } = await context.params;
+//     const blog = blogs.find(blog => blog.id === parseInt(blogId));
+//     return NextResponse.json(blog || null);
+// }
+
+// // DELETE
+// export async function DELETE(
+//     request: NextRequest,
+//     context: { params: Promise<{ blogId: string }> }
+// ) {
+//     const { blogId } = await context.params;
+//     const id = parseInt(blogId);
+//     const index = blogs.findIndex(blog => blog.id === id);
+//     if (index > -1) {
+//         blogs.splice(index, 1);
+//         return NextResponse.json({ message: "Deleted successfully" });
+//     }
+//     return NextResponse.json({ message: "Blog not found" }, { status: 404 });
+// }
+
+// // PATCH
+// export async function PATCH(
+//     request: NextRequest,
+//     context: { params: Promise<{ blogId: string }> }
+// ) {
+//     const { blogId } = await context.params;
+//     const id = parseInt(blogId);
+//     const updatedData = await request.json();
+//     const blogIndex = blogs.findIndex(blog => blog.id === id);
+
+//     if (blogIndex > -1) {
+//         blogs[blogIndex] = { ...blogs[blogIndex], ...updatedData };
+//         return NextResponse.json(blogs[blogIndex]);
+//     }
+
+//     return NextResponse.json({ message: "Blog not found" }, { status: 404 });
+// }
+
+
 import { NextRequest, NextResponse } from "next/server";
-import { blogs } from "../route";
+import { blogs } from "@/lib/data"; 
+
+type Props = {
+    params: Promise<{ blogId: string }>;
+};
 
 // GET
-export async function GET(
-    request: NextRequest,
-    context: { params: Promise<{ blogId: string }> }
-) {
-    const { blogId } = await context.params;
+export async function GET(request: NextRequest, { params }: Props) {
+    const { blogId } = await params;
     const blog = blogs.find(blog => blog.id === parseInt(blogId));
-    return NextResponse.json(blog || null);
+
+    if (!blog) {
+        return NextResponse.json({ message: "Blog not found" }, { status: 404 });
+    }
+    return NextResponse.json(blog);
 }
 
 // DELETE
-export async function DELETE(
-    request: NextRequest,
-    context: { params: Promise<{ blogId: string }> }
-) {
-    const { blogId } = await context.params;
+export async function DELETE(request: NextRequest, { params }: Props) {
+    const { blogId } = await params;
     const id = parseInt(blogId);
     const index = blogs.findIndex(blog => blog.id === id);
+
     if (index > -1) {
         blogs.splice(index, 1);
         return NextResponse.json({ message: "Deleted successfully" });
@@ -27,11 +77,8 @@ export async function DELETE(
 }
 
 // PATCH
-export async function PATCH(
-    request: NextRequest,
-    context: { params: Promise<{ blogId: string }> }
-) {
-    const { blogId } = await context.params;
+export async function PATCH(request: NextRequest, { params }: Props) {
+    const { blogId } = await params;
     const id = parseInt(blogId);
     const updatedData = await request.json();
     const blogIndex = blogs.findIndex(blog => blog.id === id);
@@ -43,7 +90,6 @@ export async function PATCH(
 
     return NextResponse.json({ message: "Blog not found" }, { status: 404 });
 }
-
 
 
 
